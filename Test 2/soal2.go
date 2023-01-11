@@ -7,29 +7,43 @@ import (
     "os"
     "strconv"
     "strings"
+	"sort"
 )
 
 /*
- * Complete the 'simpleArraySum' function below.
+ * Complete the 'climbingLeaderboard' function below.
  *
- * The function is expected to return an INTEGER.
- * The function accepts INTEGER_ARRAY ar as parameter.
+ * The function is expected to return an INTEGER_ARRAY.
+ * The function accepts following parameters:
+ *  1. INTEGER_ARRAY ranked
+ *  2. INTEGER_ARRAY player
  */
 
-func simpleArraySum(ar []int32) int32 {
+func climbingLeaderboard(ranked []int32, player []int32) []int32 {
     // Write your code here
-    var add_x int32 = 0
-    for _, x  := range ar {
-        add_x += x
+    ranks := ranked[:1]
+    last := ranks[0]
+    for _, score := range ranked[1:] {
+        if score != last {
+            ranks = append(ranks, score)
+        }
+        last = score
     }
-    
-    return add_x
+
+    position := make([]int32, 0, len(player))
+    for _, score := range player {
+        rank := sort.Search(
+            len(ranks),
+            func(i int) bool { return ranks[i] <= score },
+        )
+        position = append(position, int32(rank+1))
+    }
+    return position
 }
 
 func main() {
     reader := bufio.NewReaderSize(os.Stdin, 16 * 1024 * 1024)
 
-	os.Setenv("OUTPUT_PATH", "C:/.qodri-and-his-cloud-adventure/Interview/Gits/Test 2/output.txt")
     stdout, err := os.Create("output.txt")
     checkError(err)
 
@@ -37,26 +51,47 @@ func main() {
 
     writer := bufio.NewWriterSize(stdout, 16 * 1024 * 1024)
 
-    arCount, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
+    rankedCount, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
     checkError(err)
 
-    arTemp := strings.Split(strings.TrimSpace(readLine(reader)), " ")
+    rankedTemp := strings.Split(strings.TrimSpace(readLine(reader)), " ")
 
-    var ar []int32
+    var ranked []int32
 
-    for i := 0; i < int(arCount); i++ {
-        arItemTemp, err := strconv.ParseInt(arTemp[i], 10, 64)
+    for i := 0; i < int(rankedCount); i++ {
+        rankedItemTemp, err := strconv.ParseInt(rankedTemp[i], 10, 64)
         checkError(err)
-        arItem := int32(arItemTemp)
-        ar = append(ar, arItem)
+        rankedItem := int32(rankedItemTemp)
+        ranked = append(ranked, rankedItem)
     }
-    
-    // fmt.Fprintf(writer, "%d\n", ar)
-    // writer.Flush()
 
-    result := simpleArraySum(ar)
-	fmt.Printf("Result: %d\n", result)
-    fmt.Fprintf(writer, "%d\n", result)
+    playerCount, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
+    checkError(err)
+
+    playerTemp := strings.Split(strings.TrimSpace(readLine(reader)), " ")
+
+    var player []int32
+
+    for i := 0; i < int(playerCount); i++ {
+        playerItemTemp, err := strconv.ParseInt(playerTemp[i], 10, 64)
+        checkError(err)
+        playerItem := int32(playerItemTemp)
+        player = append(player, playerItem)
+    }
+
+    result := climbingLeaderboard(ranked, player)
+
+    for i, resultItem := range result {
+		fmt.Printf("%d ", resultItem)
+        fmt.Fprintf(writer, "%d", resultItem)
+
+        if i != len(result) - 1 {
+            fmt.Fprintf(writer, "\n")
+        }
+    }
+
+
+    fmt.Fprintf(writer, "\n")
 
     writer.Flush()
 }
