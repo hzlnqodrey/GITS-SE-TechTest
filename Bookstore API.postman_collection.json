@@ -1,0 +1,914 @@
+{
+	"info": {
+		"_postman_id": "4d2bcb62-fada-4c61-b7e1-9bb1e31cddfe",
+		"name": "Bookstore API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19306130"
+	},
+	"item": [
+		{
+			"name": "BOOK [AFTER AUTH, PUT ACCESS_TOKEN TO HEADER X-ACCESS-TOKEN]",
+			"item": [
+				{
+					"name": "Create a new Book",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjczNTQyMDAwLCJleHAiOjMxNzI0MzA2MjAwMH0.amlv38uZ7dDJlD_VvWAtJhrwUyBrIb1btZvz84T2sQQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Harry Potter and the chamber of secret\",\r\n    \"summary\": \"Harry Potter and the Chamber of Secrets is a 2002 fantasy film directed by Chris Columbus from a screenplay by Steve Kloves, based on the 1998 novel of the same name by J. K. Rowling.\",\r\n    \"authorId\": 6,\r\n    \"publisherId\": 6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5050/api/book/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"book",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve all the Books",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjczNTQyMDAwLCJleHAiOjMxNzI0MzA2MjAwMH0.amlv38uZ7dDJlD_VvWAtJhrwUyBrIb1btZvz84T2sQQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5050/api/books/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"books",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a single Books",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjczNTQyMDAwLCJleHAiOjMxNzI0MzA2MjAwMH0.amlv38uZ7dDJlD_VvWAtJhrwUyBrIb1btZvz84T2sQQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5050/api/book/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"book",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[NO TOKEN] Search Query",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"search\": \"Harry\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5050/api/book/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"book",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a single Book",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjczNTMzNDE4LCJleHAiOjMxNzI0MzA1MzQxOH0.5apwMmuiNUsLKdzZjvlg0oCBL1hMuCL_TiGrG53KQYQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Jungle Book\",\r\n    \"summary\": \"do you know? the famous jungle book\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5050/api/book/2/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"book",
+								"2",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a single Book",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjczNTQyMDAwLCJleHAiOjMxNzI0MzA2MjAwMH0.amlv38uZ7dDJlD_VvWAtJhrwUyBrIb1btZvz84T2sQQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5050/api/book/1/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"book",
+								"1",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AUTHOR",
+			"item": [
+				{
+					"name": "Create a new Author",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjczNTQyMDAwLCJleHAiOjMxNzI0MzA2MjAwMH0.amlv38uZ7dDJlD_VvWAtJhrwUyBrIb1btZvz84T2sQQ",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Rivano ATK\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5050/api/author/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"author",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve all the Author",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjczNTQyMDAwLCJleHAiOjMxNzI0MzA2MjAwMH0.amlv38uZ7dDJlD_VvWAtJhrwUyBrIb1btZvz84T2sQQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5050/api/authors/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"authors",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a single Author",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjczNTQyMDAwLCJleHAiOjMxNzI0MzA2MjAwMH0.amlv38uZ7dDJlD_VvWAtJhrwUyBrIb1btZvz84T2sQQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5050/api/author/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"author",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[NO TOKEN] Search Query Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"search\": \"Hazlan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5050/api/author/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"author",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a single Author Copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjczNTQyMDAwLCJleHAiOjMxNzI0MzA2MjAwMH0.amlv38uZ7dDJlD_VvWAtJhrwUyBrIb1btZvz84T2sQQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Hazlan M Qodri\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5050/api/author/7/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"author",
+								"7",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a single Author Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjczNTQyMDAwLCJleHAiOjMxNzI0MzA2MjAwMH0.amlv38uZ7dDJlD_VvWAtJhrwUyBrIb1btZvz84T2sQQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5050/api/author/8/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"author",
+								"8",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PUBLISHER",
+			"item": [
+				{
+					"name": "Create a new Publisher",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjczNTQyMDAwLCJleHAiOjMxNzI0MzA2MjAwMH0.amlv38uZ7dDJlD_VvWAtJhrwUyBrIb1btZvz84T2sQQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Bloomsbury, 2001.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5050/api/publisher/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"publisher",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve all the Publishers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjczNTQyMDAwLCJleHAiOjMxNzI0MzA2MjAwMH0.amlv38uZ7dDJlD_VvWAtJhrwUyBrIb1btZvz84T2sQQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5050/api/publishers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"publishers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a single Publisher",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjczNTQyMDAwLCJleHAiOjMxNzI0MzA2MjAwMH0.amlv38uZ7dDJlD_VvWAtJhrwUyBrIb1btZvz84T2sQQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5050/api/publisher/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"publisher",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[NO TOKEN] Search Query Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"search\": \"Bloom\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5050/api/publisher/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"publisher",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a single publisherCopy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjczNTQyMDAwLCJleHAiOjMxNzI0MzA2MjAwMH0.amlv38uZ7dDJlD_VvWAtJhrwUyBrIb1btZvz84T2sQQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Bloomsbury, 2010\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5050/api/publisher/1/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"publisher",
+								"1",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a single publisher Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjczNTQyMDAwLCJleHAiOjMxNzI0MzA2MjAwMH0.amlv38uZ7dDJlD_VvWAtJhrwUyBrIb1btZvz84T2sQQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5050/api/publisher/2/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"publisher",
+								"2",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth Copy [SIGN UP FIRST THEN SIGN IN]",
+			"item": [
+				{
+					"name": "Sign In Copy [THEN LOGIN TO GET TOKEN]",
+					"item": [
+						{
+							"name": "Login an account",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"gits\",\r\n    \"password\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/auth/signin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"auth",
+										"signin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Public Access Content",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwiaWF0IjoxNjY1MzIwNjcyLCJleHAiOjE2NjU0MDUyNzJ9.5FJSxF0nGhOJCi41kwaamlROci7vBLj_kUs2YDT9kOweyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwiaWF0IjoxNjY1MzIwNjcyLCJleHAiOjE2NjU0MDUyNzJ9.5FJSxF0nGhOJCi41kwaamlROci7vBLj_kUs2YDT9kOw",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5050/api/test/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"test",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Access Content",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjY1NzY0MTc1LCJleHAiOjE2NjU4NDg3NzV9.ez3LEyWgeyU5MKNJPQ6G-hQlCk5RDKQb0WcClmfMx80",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5050/api/test/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"test",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Admin Access Content",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjczNDUxMzU0LCJleHAiOjE2NzM1MzU5NTR9.k9GYeNN6frWezaZAvfOdyb2n3i_OpsuunnZybeJsx-I",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5050/api/test/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"test",
+										"admin"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Sign Up Copy [HERE]",
+					"item": [
+						{
+							"name": "Create new user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"hazlan user\",\r\n    \"username\": \"hazlan\",\r\n    \"email\": \"hazlan@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/auth/signup",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Sign Out Copy",
+					"item": [
+						{
+							"name": "Log out an account",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/auth/signout",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"auth",
+										"signout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User Copy",
+			"item": [
+				{
+					"name": "Get All Users [Dashboard Info] Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjY5MjUxNjMyLCJleHAiOjE2NjkzMzYyMzJ9.KtboKHdF9ykOWwcDoXBsC7AsO2P4iIY6_8XnF-mlwAs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5050/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Detail Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5MjQzMzkxLCJleHAiOjE2NjkzMjc5OTF9.vHd9dnTjCtj57WNF1HQNDHTO2hD-7XA3ZY359WYVp5A",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5050/api/user/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"user",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Profile Copy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5MjQwODA3LCJleHAiOjE2NjkzMjU0MDd9.3i4c0e4OKh7kykR4GlyLslwbhywUJfRA2qcc4lB-Ako",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/HAZLAN M QODRI/Downloads/Profile Picture Material/IMG_0449square.jpg"
+								},
+								{
+									"key": "name",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "syarifahlailbaity@gmail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "bettyAdminReal",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "newPassword",
+									"value": "1234qwerty1234@",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "confirmNewPassword",
+									"value": "1234qwerty1234@",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5050/api/user/2/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5050",
+							"path": [
+								"api",
+								"user",
+								"2",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
